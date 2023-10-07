@@ -13,7 +13,7 @@ def available_books():
     for book in books:
         print(book)
 
-available_books()       
+# available_books()       
 # 1.2 TODO: Run the 'available_books' function
 
 
@@ -22,10 +22,9 @@ print('-----------------------')
 # Parameters: book_title (string)
 # Return: Not needed for this function
 def check_out(book_title: str):
-    try:
-        books.remove(book_title)
-    except ValueError:
-        pass
+    if book_title == True:
+       books.remove(book_title)
+   
 
 
 # check_out("book_title")
@@ -159,7 +158,7 @@ def count_books():
     
     
     # return number_of_books
-count_books()
+# count_books()
 # 2.2 TODO: Check the number of books available in the books list using the `count_books` function
 # HINT: Does `return` print anything out? done
 
@@ -178,9 +177,9 @@ def search_by_author(author: str):
         
     name_author = input("what author are you looking for?")
     return title_by_author
-    # name_author = input("what author are you looking for?")
-    # print(name_author)
+  
     title_by_author = search_by_author(name_author)
+    # search_by_author("Yuval Noah Harari")
 # search_by_author("author")
 # 2.4 TODO: Search for book titles by the author 'Yuval Noah Harari' using the search_by_author function
 # HINT: Remember again-- return doesn't print anything out. How can we print the output of the function?
