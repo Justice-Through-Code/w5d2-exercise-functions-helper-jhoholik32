@@ -9,46 +9,66 @@ books = [
 # 1.1 TODO: Create a function named 'available_books' to print the books list -- one book title on each line
 # Parameters: Not needed for this function
 # Return: Not needed for this function
+def available_books():
+    for book in books:
+        print(book)
 
-
+# available_books()       
 # 1.2 TODO: Run the 'available_books' function
 
 
-print('-----------------------')
+# print('-----------------------')
 # 1.3 TODO: Create a function named 'check_out' that removes a book from the books list
 # Parameters: book_title (string)
 # Return: Not needed for this function
+def check_out(book_title: str):
+    if book_title == True:
+       books.remove(book_title)
+   
 
 
+# check_out("book_title")
 # 1.4 TODO: Check out 'THE POWER OF MOMENTS' using the check_out function
-
 
 # 1.5 TODO: Run the 'available_books' function again to see if the book was checked out
 
 
-print('-----------------------')
+# print('-----------------------')
 # 1.6 TODO: Create a function 'check_in' that adds a book to the end of the books list
 # Parameters: book_title (string)
 # Return: Not needed for this function
-
+def check_in(book_title: str):
+    # book_title = input("what book do you want to check in?")
+    books.append(book_title)    
+    
+# check_in("book_title")
 
 # 1.7 TODO: Check in 'THE POWER OF MOMENTS' using the check_in function
-
+check_in('THE POWER OF MOMENTS')
 
 # 1.8 TODO: Run the 'available_books' function to see if the book was checked in
 
 
-print('-----------------------')
+# print('-----------------------')
 # 1.9 TODO: Create a function 'search_by_name' that prints 'Available' if exists in books list, 'Not Available' if it doesn't.
 # Parameters: book_title (string)
 # Return: Not needed for this function
+def search_by_name(book_title: str):
+    # book_title = input('What title are you looking for today?: ')
+    try:
+        books.index(book_title)
+        print("Available")
+    except ValueError:
+        print("Not Available")
+
+# search_by_name("book_title")
 
 
 # 1.10 TODO: Search for the book 'JUST MERCY'
-
+search_by_name('JUST MERCY')
 
 # 1.11 TODO: Search for the book '4000 WEEKS'
-
+search_by_name('4000 WEEKS')
 
 # Here's the same list of books, with additional details
 
@@ -124,22 +144,44 @@ books_with_details = [
 
 # 2.0 TODO: In a comment, describe the structure of the data in books_with_details.
 # What types of data are nested within others? How do you know?
-
+# They are lists containing dictionaries containing key value pairs 
+# []syntax designates list the {} syntax designates dictionary and the (x:y)sytax is a key value pair 
 
 # 2.1 TODO: Create a function called 'count_books' that returns the number of books in the books_with_details list
 # Parameters: Not needed for this function
 # Return: number of books (integer)
-
-
+def count_books():
+    
+    number_of_books = len(books_with_details)
+    print(number_of_books)
+    return int(number_of_books)
+    
+  
+    # return number_of_books
+# count_books()
 # 2.2 TODO: Check the number of books available in the books list using the `count_books` function
-# HINT: Does `return` print anything out?
+# HINT: Does `return` print anything out? done
 
 
 # 2.3 TODO: Create a function 'search_by_author' that returns the titles of books by an author
 # Parameters - author (string)
 # Return - author's books (list of strings)
 # Hint - You will need a for loop, if statement, and .append() for this solution!
+def search_by_author(author: str):
+    title_by_author = []
+    
+    for book in books_with_details:
+        book_by_author = book["author"]
+
+        if book_by_author ==  author:
+            title_by_author.append(book['title'])
+        
+    # name_author = input("what author are you looking for?")
+    print(title_by_author)
+    return title_by_author
 
 
+    # search_by_author("Yuval Noah Harari")
+# search_by_author("author")
 # 2.4 TODO: Search for book titles by the author 'Yuval Noah Harari' using the search_by_author function
 # HINT: Remember again-- return doesn't print anything out. How can we print the output of the function?
